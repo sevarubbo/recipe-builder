@@ -54,6 +54,18 @@ export default class IngredientCreator extends React.Component {
   }
 
   /**
+   * @param e
+   */
+  onAltIngredientsChange (e) {
+    this.setState({
+      newAttributes: {
+        ...this.state.newAttributes,
+        altIngredients: [...e.target.options].filter(o => o.selected).map(o => +o.value)
+      }
+    });
+  }
+
+  /**
    * Methods
    */
 
@@ -68,7 +80,8 @@ export default class IngredientCreator extends React.Component {
     this.setState({
       newAttributes: {
         name: '',
-        cost: 2
+        cost: 2,
+        altIngredients: []
       }
     });
   }
@@ -107,7 +120,9 @@ export default class IngredientCreator extends React.Component {
           <br />
           <label>
             Alternatives:&nbsp;
-            <select>
+            <select value={this.state.newAttributes.altIngredients} multiple={true}
+              onChange={e => this.onAltIngredientsChange(e)}
+            >
               { this.props.ingredients.map(ingredient => (
                 <option key={ingredient.id} value={ingredient.id}>{ ingredient.name }</option>
               )) }

@@ -23,7 +23,9 @@ export default class IngredientList extends React.Component {
         <h1>All ingredients</h1>
         { this.props.ingredients.map(ingredient => (
           <article key={ingredient.id}>
-            { ingredient.name }
+            { ingredient.name } – Cost: { ingredient.cost } - Alternatives: { (ingredient.altIngredients || []).map(id => {
+              return this.props.ingredients.find(i => i.id === id).name
+          }).join(', ') }
           </article>
         )) }
       </section>
