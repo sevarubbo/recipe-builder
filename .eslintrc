@@ -1,0 +1,28 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "semi": ["error"],
+    "padded-blocks": ["error", "never"],
+    "no-multiple-empty-lines": "error",
+    "quotes": ["error", "single"],
+    "no-extra-parens": ["error"],
+    "space-in-parens": ["error"],
+    "space-before-function-paren": ["error", "always"]
+  }
+}
